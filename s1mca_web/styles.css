@@ -1,0 +1,21 @@
+body{
+	background-image:url("bg.avif");
+}
+
+h1{
+	color:red;
+	background-color:skyblue;
+}
+
+img{
+	width:100%;
+	height:60%;
+}
+
+.props{
+	color:red;
+	background-color:skyblue;
+	width:25%;
+	height:50%;
+}
+
