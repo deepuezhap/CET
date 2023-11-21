@@ -93,21 +93,37 @@ void deleteend()
 {
 	
 	temp = head;
-	while (temp->next!= NULL)
+	while (temp->next->next!= NULL)
 	{
 		
 		temp = temp->next;
 	}
-	printf("%d is to be deleted", temp->data);
-	del=temp;
+	printf("%d is to be deleted", temp->next->data);
+	
+	del=temp->next;
+	temp->next=NULL;
 	free(del);
 
+
 }
+
+void deleteat()
+{
+
+
+printf("nott");
+
+
+
+}
+
+
+
 
 void main()
 {
 	int n;
-	printf("1.Creation \n2.Display\n3.Insertion at a particular position\n4.delete at beg \n5.delete at particular pos\n6.delete at end \n7.exit \n");
+	printf("1.Creation \n2.Display\n3.Insertion at a particular position\n4.delete at beg \n5.delete at end \n6.delete at particular pos\n7.exit \n");
 
 	while (1)
 	{
@@ -133,10 +149,12 @@ void main()
 
 		case 5:
 			deleteend();
-			// printf("Hello");
+			break;
+		case 6 :
+			deleteat();
 			break;
 
-		case 6:
+		case 7:
 			exit(0);
 			break;
 
