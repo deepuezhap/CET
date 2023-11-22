@@ -1,9 +1,4 @@
-a={
-    "name":"deepu",
-    "class name":"asd",
-
-
-
-
-}
-print(a)
+a={'Deepu':'red','Raman':'yellow'}
+b={'Alida':'blue','cameron':'violet','Deepu':'Man'}
+c=a|b
+print(c)
