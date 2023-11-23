@@ -6,12 +6,15 @@ for i in range (0,n):
 	list1.append(a)
 
 print(list1)
-sum=0
-for x in list1:
-	sum=sum+x
+
+def summ(list1):	
+	sum=0
+	for x in list1:
+		sum=sum+x
+	return sum
 
 
-print(sum)
+print(summ(list1))
 	
 	
 	
