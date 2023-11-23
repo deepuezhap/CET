@@ -43,6 +43,7 @@ void insertion()
 void insertat()
 {
 	int pos, a;
+	
 	printf("enter the position to insert  and the value: ");
 	scanf("%d %d", &pos, &a);
 	struct node *newnode = create(a);
@@ -58,6 +59,11 @@ void insertat()
 
 		while (i < pos - 1)
 		{
+			if(temp->next==NULL)
+			{
+				printf("invalid pos");
+				exit(0);
+			}
 			temp = temp->next;
 			i++;
 		}
@@ -98,22 +104,52 @@ void deleteend()
 		
 		temp = temp->next;
 	}
-	printf("%d is to be deleted", temp->next->data);
+	
 	
 	del=temp->next;
+	printf("%d is deleted", temp->next->data);
 	temp->next=NULL;
 	free(del);
-
+	display();
 
 }
 
 void deleteat()
 {
+int pos, a;
 
+	printf("enter the position to delete: ");
+	scanf("%d",&pos);
+	int i = 1;
+	temp = head;
+	if (pos == 1)
+	{
+		del=head;				//if first node is to be deleted
+		head=head->next;
+		free(del);
+	}
+	else
+	{
 
-printf("nott");
+		while (i < pos - 1)
+		{
+			temp = temp->next;
+			if(temp->next==NULL)
+			{
 
+				printf("invalid pos");
+				exit(0);
+			}
+			i++;
+		}
 
+		del=temp->next;
+		printf("%d is deleted \n",del->data);
+		temp->next=temp->next->next;
+		free(del);
+		display();
+
+	}
 
 }
 
@@ -151,6 +187,7 @@ void main()
 			deleteend();
 			break;
 		case 6 :
+			display(); 
 			deleteat();
 			break;
 
