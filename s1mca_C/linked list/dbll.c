@@ -8,8 +8,8 @@ struct node
 	struct node *next;
     struct node *prev;
 };
-
-struct node *head, *temp;
+void display();
+struct node *head, *temp,*del;
 struct node *create(int val) // creattion of new node memory is allocated and new node is returned
 {
 	struct node *node = (struct node *)malloc(sizeof(struct node));
@@ -37,9 +37,52 @@ void insertion()
 			temp = temp->next;
 		}
 		temp->next = newnode;
+        newnode->prev=temp;   //adding a link to prev  node 
+
 	}
 }
 
+void insertat()
+{
+	int pos, a;
+	
+	printf("enter the position to insert  and the value: ");
+	scanf("%d %d", &pos, &a);
+	struct node *newnode = create(a);
+	int i = 1;
+	temp = head;
+	if (pos == 1)
+	{
+		newnode->next = head;
+		head = newnode;
+
+		
+	}
+	else
+	{
+
+		while (i < pos - 1)
+		{
+			if(temp->next==NULL)
+			{
+				printf("invalid pos");
+				exit(0);
+			}
+			temp = temp->next;
+			i++;
+		}
+		newnode->next = temp->next;
+		newnode->prev=temp;
+
+		temp->next->prev=newnode;
+
+		temp->next = newnode;
+		
+
+
+	}
+	display();
+}
 
 
 void display()
@@ -64,7 +107,7 @@ while(temp->next!=NULL)
 {
     temp=temp->next;
 }
-
+printf("Reverse Linked list is : ");
 while(temp!=NULL)
 {
     printf("%d  ",temp->data);
@@ -72,12 +115,47 @@ while(temp!=NULL)
 
 }
 }
+void deletebeg()
+{
+	del = head;
+	head = head->next;
+	head->prev=NULL;
+
+	printf("%d is deleted \n", del->data);
+	free(del);
+	display();
+}
+
+void deleteend() //same as that of singly linked list
+//not considering deleteing the last node of the linked list
+{
+	
+	temp = head;
+	// if(temp->next==NULL)   complete the code for deleting the last node
+	// {
+		
+
+	// }
+	while (temp->next->next!= NULL)
+	{
+		
+		temp = temp->next;
+	}
+	
+	
+	del=temp->next;
+	printf("%d is deleted", del->data);
+	temp->next=NULL;
+	free(del);
+	display();
+
+}
 
 
 void main()
 {
 	int n;
-	printf("1.Creation \n2.Display\n3.Rev display\n4.delete at beg \n5.delete at end \n6.delete at particular pos\n7.exit \n");
+	printf("1.Creation \n2.Display\n3.Rev display\n4.insert at  \n5.delete at beg \n6.delete at end \n7.delete at particular pos\n8.exit \n");
 
 	while (1)
 	{
@@ -97,19 +175,23 @@ void main()
 			revdisplay();
 			break;
 
-		// case 4:
-		// 	deletebeg();
-		// 	break;
+		case 4:
+			insertat();
+			break;
 
-		// case 5:
-		// 	deleteend();
-		// 	break;
+		case 5:
+			deletebeg();
+			break;
+
+		case 6:
+			deleteend();
+			break;
 		// case 6 :
 		// 	display(); 
 		// 	deleteat();
 		// 	break;
 
-		case 4:
+		case 7:
 			exit(0);
 			break;
 

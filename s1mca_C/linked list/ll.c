@@ -107,7 +107,7 @@ void deleteend()
 	
 	
 	del=temp->next;
-	printf("%d is deleted", temp->next->data);
+	printf("%d is deleted", del->data);
 	temp->next=NULL;
 	free(del);
 	display();
