@@ -193,7 +193,7 @@ void main()
 
 		case 7:
 			exit(0);
-			break;
+			
 
 		default:
 			printf("enter a valid choice!!");

@@ -8,7 +8,7 @@ if($_POST)
     $r1=mysqli_query($cn,$sql);
     if(mysqli_num_rows($r1))
     {
-        header("Location:main.php");
+        header("Location:frame.php");
     }
     else
     {
