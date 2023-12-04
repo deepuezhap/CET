@@ -101,6 +101,11 @@ void deletebeg()
 	head = head->next;
 	printf("%d is deleted \n", del->data);
 	free(del);
+    while(temp->next!=head)  // traversing to last to create that link to first node
+        {
+            temp=temp->next;
+        }
+        temp->next=head;
 	display();
 }
 
@@ -117,7 +122,7 @@ void deleteend()
 	
 	del=temp->next;
 	printf("%d is deleted", del->data);
-	temp->next=NULL;
+	temp->next=head;   //link to first node that is head
 	free(del);
 	display();
 
