@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-    <li>Edit profile</li>
-    <li>Update phopto</li>
+<ul type="disc">
+    
+ 
+    
+        <li><a href='register.php' target ="home">Student Registration</a></li>
+        <li><a href='mark.php' target ="home">Enter marks</a></li>
+        <li><a href='markupdate.php' target ="home">Update marks</a></li>
 
 </ul>
 </body>
