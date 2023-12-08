@@ -1,2 +1,6 @@
+import math
 def carea(x):
-    return 3.14*(x**2)
+    return math.pi*(x**2)
+
+def cperi(x):
+    return 2*math.pi*x

@@ -1,2 +1,5 @@
+import math
+
+
 def spherearea(r):
-    return 4*3.14*(r**2)
+    return 4*math.pi*(r**2)
