@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <frameset cols="15%,*">
-    <frame src="sidebar.php">
-    <frame src="home.php">
+    <frame src="sidebar.php" name="sidebar">
+    <frame src="home.php" name="home">
 
 
 </frameset>

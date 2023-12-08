@@ -8,6 +8,7 @@ if($_POST)
     $r1=mysqli_query($cn,$sql);
     if(mysqli_num_rows($r1))
     {
+        // $_SESSION['uname']=$uname;
         header("Location:frame.php");
     }
     else

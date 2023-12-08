@@ -23,6 +23,8 @@ include 'connect.php' ;
 if($_POST)
 {
     $sq = "insert into stud values('$_POST[val1]','$_POST[val2]','$_POST[val3]')";
+
+    
     $p = mysqli_query($cn,$sq);
 
      if($p)
