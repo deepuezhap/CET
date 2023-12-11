@@ -8,15 +8,25 @@ class Time :
         return f"{self.h} : {self.m} : {self.s}"
 
     def __add__(self,other):
-        self.h=self.h+other.h
-        self.m=self.m+other.m
-        self.s=self.s+other.s
-        return f"{self.h} : {self.m} : {self.s}"
+
+        t=Time()
+        t.h=self.h+other.h
+        t.m=self.m+other.m
+        t.s=self.s+other.s
+
+        
+
+
+
+
+
+        return t
 
 
 a= Time(12,44,22)
 b= Time(3,22,25)
+c=a+b
 print(a)
 print(b)
-print(a+b)
+print(c)
 
