@@ -9,22 +9,25 @@ class Time :
 
     def __add__(self,other):
 
-        t=Time()
-        t.h=self.h+other.h
-        t.m=self.m+other.m
-        t.s=self.s+other.s
+        t=Time(0,0,0)
+        a=self.s+other.s
+        
+        b=self.m+other.m + t.s
+
+        c=self.h+other.h + t.h
+        
+        t.s=a%60
+        t.m = b%60 + a//60
+
+        t.h=c
+
 
         
-
-
-
-
-
         return t
 
 
-a= Time(12,44,22)
-b= Time(3,22,25)
+a= Time(12,44,50)
+b= Time(3,10,22)
 c=a+b
 print(a)
 print(b)
