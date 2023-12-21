@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body >
-    <h1 id="ha" >haaiii</h1>
-    <h1 id="hb">haaiii</h1>
-    <input type="button" value="ON" onmouseover="document.getElementById('im1').src='2.jpg'">
-    <input type="button" value="OFF" onmouseover="document.getElementById('im1').src='1.PNG'">
-    <img id="im1" src="1.PNG" width="500" height="600">
+<body>
+    <input type = "text"  id="name"><br><br>
+    <input type="button" value=" Upper case" onclick="document.getElementById('p1').innerHTML=document.getElementById('name').value.toUpperCase()">
+    <input type="button" value=" Lower case" onclick="document.getElementById('p1').innerHTML=document.getElementById('name').value.toLowerCase()">
+    <input type="button" value=" Length" onclick="document.getElementById('p1').innerHTML=document.getElementById('name').value.length"><br><br>
+    <p id="p1" >
+
+    </p><BR>
+    Old name: <input type = "text"  id="old"><br><br>
+    New name: <input type = "text"  id="new"><br><br>
+
+    <input type="button" value=" Replace" onclick="rep()">
+
+    <script>
+        function rep()
+        {   
+            var x = document.getElementById('old').value;
+            var y = document.getElementById('new').value;
+            var z = document.getElementById('name').value;
+            document.getElementById('name').value = z.replace(x,y)
+
+        }
+
+
+
+    </script>
+
+
+
   
 
-
+    
 </body>
 </html>
