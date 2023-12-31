@@ -10,7 +10,7 @@ void enqueue(int x)
     if(rear==9)
     {
         printf("overflow \n");
-        return ;
+        return ;  //exiting the function otherwise 
         
     }
     else if(front==-1 && rear==-1)
@@ -21,7 +21,7 @@ void enqueue(int x)
     else{
         rear++;
     }
-    q[rear]=x;
+    q[rear]=x;   //this statement will be executed and there will be error
 
 }
 
