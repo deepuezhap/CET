@@ -1,19 +1,7 @@
-def fact(n):
-	f=1
-	for i in range(1,n+1):
-			f=f*i
-			i+=1
-	return f
-	
+def fact(x):
+    fact=1
+    for i in range(1,x+1):
+        fact=fact*i
+    return fact
 
-
-n=int(input("Enter the number: "))
-print("Factorial =",fact(n))
-
-
-
-
-
-
-	
-	
+print(fact(5))

@@ -1,4 +1,4 @@
-n=int(input("enter the nm"))
+
 
 def pattern(n):
 	for i in range (1,n+1):
@@ -6,4 +6,3 @@ def pattern(n):
 			print(i*j,end=' ')
 		print()
 
-pattern(n)
