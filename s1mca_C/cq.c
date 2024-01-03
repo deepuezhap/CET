@@ -1,15 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-int q[10];
+#define size 5   // so whenever we use size it means 10;
+int q[size];
 int front=-1;
 int rear =-1;
 
 void enqueue(int x)
 {
-    if(rear==9)
+    if((rear+1)%size==front) // <<<<<<<<<<<<<<<<<  changed for cq
     {
-        printf("overflow \n");
+        printf("overflow \n"); 
         return ;  //exiting the function otherwise 
         
     }
@@ -19,7 +19,7 @@ void enqueue(int x)
         
     }
     else{
-        rear++;
+        rear=(rear+1)%size;    // <<<<<<<<<<<<<<<<<  changed for cq
     }
     q[rear]=x;   //this statement will be executed and there will be error
 
@@ -27,34 +27,34 @@ void enqueue(int x)
 
 void disp()
 {
-    if(front==-1)
+    if(front==-1 && rear==-1)
     {
         printf("emptty queue \n");
         return ;
     }
-    for(int i=front;i<=rear;i++)
-    {
-        printf("%d  ",q[i]);
-    }
-    
+   for(int i=0;i<size;i++)
+    printf("%d  ",q[i]);
 
+    
 }
 
 void dequeue()
 {
-    if(front==-1)
+    if(front==-1 && rear==-1)
     {
         printf("q is empty \n");
     
     }
+    else if(front==rear)  //only one element in the circular queue
+    {
+        printf("%d is dequeued \n",q[front]);
+        front=rear=-1;
+    }
     else{
         printf("%d is dequeued \n",q[front]);
-        front++;
-        if(front>rear)
-    {
-        front=rear=-1;
+        q[front]=0;
+        front=(front+1)%size;
 
-    }
     }
 }
 
@@ -65,7 +65,7 @@ void main()
     printf("1 enque \n 2 display \n 3 dequeue :");
     while(1)
     {
-        printf("enteer the choice :");
+        printf("\n enteer the choice :");
         scanf("%d",&n);
         switch(n)
         {

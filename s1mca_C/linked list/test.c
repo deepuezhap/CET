@@ -1,42 +1,133 @@
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    int data;
+    struct node* next;
+};
+
+struct node *head,*temp;
+
+
+struct node* create(int x)
+{
+    struct node* node=(struct node*)malloc(sizeof(struct node*));
+    node->data=x;
+    node->next=NULL;
+    return node;
+    
+}
+
+void insert()
+{
+    int val;
+    printf("enter the value:  ");
+    scanf("%d",&val);
+    struct node* new = create(val);
+
+    if(head==NULL)
+    {
+        head = new;
+    }
+    else
+    {
+        temp=head;
+        while(temp->next!=NULL)
+        {
+            temp=temp->next;
+
+        }
+        temp->next=new;
+    }
+}
+
+void insertat()
+{
+    int val,pos;
+    printf("enter the value and pos  ");
+    scanf("%d",&val);
+    struct node* new = create(val);
+
+    if(head==NULL)
+    {
+        head = new;
+    }
+    else
+    {
+        temp=head;
+        while(temp->next!=NULL)
+        {
+            temp=temp->next;
+
+        }
+        temp->next=new;
+    }
+}
+
+
+
+
+
+
+
+
+void display()
+{
+    temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d ",temp->data);
+        temp=temp->next;
+
+    }
+
+}
+
+
 void main()
 {
+	int n;
+	printf("1.Creation \n2.Display\n3.Insertion at");
+    //  a particular position\n4.delete at beg \n5.delete at end \n6.delete at particular pos\n7.exit \n");
 
-    int n, i, j;
-    printf("Enter value of n \n");
-    scanf("%d", &n);
-    char name[n][50];
+	while (1)
+	{
+		printf("\n Enter your choice : ");
+		scanf("%d", &n);
+		switch (n)
+		{
+		case 1:
+        
+			insert();
+			break;
 
-    printf("Enter. N elements \n");
-    for (i = 0; i < n; i++)
-    {
+		case 2:
+			display();
+			break;
 
-        scanf("%s", name[i]);
-    }
-    // main part sorting happens here
-    for (i = 0; i < n - 1; i++)
-    {
+		// case 3:
+		// 	insertat();
+		// 	break;
 
-        for (j = 0; j < n - i - 1; j++)
+		// case 4:
+		// 	deletebeg();
+		// 	break;
 
-        {
+		// case 5:
+		// 	deleteend();
+		// 	break;
+		// case 6 :
+		// 	display(); 
+		// 	deleteat();
+		// 	break;
 
-            if (strcmp(name[j], name[j + 1]) > 0)
-            {
+		case 7:
+			exit(0);
+			
 
-                char temp[50];
-                strcpy(temp, name[j]);
-                strcpy(name[j], name[j + 1]);
-                strcpy(name[j + 1], temp);
-            }
-        }
-    }
-
-    // names display akkan
-    for (i = 0; i < n; i++)
-    {
-        printf("%d", i + 1);
-        printf("%s \n", name[i]);
-    }
+		default:
+			printf("enter a valid choice!!");
+			break;
+		}
+	}
 }
