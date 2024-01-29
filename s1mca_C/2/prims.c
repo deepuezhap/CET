@@ -2,72 +2,50 @@
 #include<stdlib.h>
 
 void main(){
-int n;
-printf("enter no of vertices : ");
-scanf("%d",&n);
-int a[n][n],V[n],u,v,cost=0,min=999,e=1;
+    int n;
+    printf("enter no of vertices : ");
+    scanf("%d",&n);
+    int a[n][n],V[n],u,v,cost=0,min=999,e=0; // Initialize min as infinity and e as 0
 
-printf("enter the adjacency matrix");
-for(int i = 0;i<n;i++)
-{
-    V[i]=0;
-    for(int j=0;j<n;j++)
+    printf("enter the adjacency matrix");
+    for(int i = 0;i<n;i++)
     {
-        scanf("%d",&a[i][j]);
-        if(a[i][j]==0)
-        a[i][j]=999;
-        if(a[i][j]<min)
-        {
-            min=a[i][j];
-            u=i;
-            v=j;
-        }
-
-
-
-    }
-
-}
-cost=cost+min;
-V[u]=1;
-V[v]=1;
-printf("spanning tree is : \n");
-printf("Edge {%d , %d}-> %d \n",u,v,min);
-
-while(e<n-1)
-{
-min=999;
-for(int i=0;i<n;i++)
-
-{
-
-    if(V[i]==1)
-    {
+        V[i]=0;
         for(int j=0;j<n;j++)
         {
-            if(a[i][j]<min && V[j]==0)
-            {
-                min=a[i][j];
-                u=i;
-                v=j;
-
-            }
+            scanf("%d",&a[i][j]);
+            if(a[i][j]==0)
+                a[i][j]=999;
         }
-
-
-
     }
 
-}
-cost=cost+min;
-V[v]=1;
-printf("Edge {%d , %d}-> %d \n",u,v,min);
-e++;
+    V[0] = 1; // Select the first vertex as starting vertex
 
-}
+    printf("spanning tree is : \n");
 
+    while(e<n-1)
+    {
+        min=999;
+        for(int i=0;i<n;i++)
+        {
+            if(V[i]==1)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    if(a[i][j]<min && V[j]==0)
+                    {
+                        min=a[i][j];
+                        u=i;
+                        v=j;
+                    }
+                }
+            }
+        }
+        cost=cost+min;
+        V[v]=1;
+        printf("Edge {%d , %d}-> %d \n",u,v,min);
+        e++;
+    }
 
-printf("cost : %d",cost);
-
-
+    printf("cost : %d",cost);
 }

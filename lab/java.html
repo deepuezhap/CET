@@ -6,36 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <input type = "text"  id="name"><br><br>
-    <input type="button" value=" Upper case" onclick="document.getElementById('p1').innerHTML=document.getElementById('name').value.toUpperCase()">
-    <input type="button" value=" Lower case" onclick="document.getElementById('p1').innerHTML=document.getElementById('name').value.toLowerCase()">
-    <input type="button" value=" Length" onclick="document.getElementById('p1').innerHTML=document.getElementById('name').value.length"><br><br>
-    <p id="p1" >
-
-    </p><BR>
-    Old name: <input type = "text"  id="old"><br><br>
-    New name: <input type = "text"  id="new"><br><br>
-
-    <input type="button" value=" Replace" onclick="rep()">
+    <H1>haii I M GOOD BOY</H1>
+    <input type="button" onmouseover="change()" value="bg color changer">
 
     <script>
-        function rep()
-        {   
-            var x = document.getElementById('old').value;
-            var y = document.getElementById('new').value;
-            var z = document.getElementById('name').value;
-            document.getElementById('name').value = z.replace(x,y)
-
-        }
+function change()
+{
+    r=Math.round(256*Math.random());
+    g=Math.round(256*Math.random());
+    b=Math.round(256*Math.random());
+    document.body.style.backgroundColor='rgb('+r+','+g+','+b+')';
 
 
-
+}
     </script>
-
-
-
-  
-
-    
 </body>
 </html>

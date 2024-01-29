@@ -35,7 +35,7 @@ return 0;
 void main(){
 int n;
 
-printf("etner size : ");
+printf("etner size of universal set : ");
 scanf("%d",&n);
 int u[n],a[n],ba[n];
 printf("etne teh elemnets : \n");
@@ -84,9 +84,10 @@ printf("%d ",a[i]);
 printf("\n");
 
 int BA[n];
-for(int i=0;i<n;i++)
-{
-    for(int j=0;j<as;j++)
+for(int i=0;i<n;i++)//taking each element of UNi 
+{//each position of bit string is filled.
+
+    for(int j=0;j<as;j++)//taking each elemnt of set A
     {
         if(u[i]==a[j])
         {
@@ -103,6 +104,24 @@ for(int i=0;i<n;i++)
 
 for(int i=0;i<n;i++)
 printf("%d ",BA[i]);
+
+
+
+
+// && -->Intersection
+// || -->Union
+// A-B --> take complement of b and do intersecttion
+
+// for(int i=0;i<5;i++)
+// {
+//     if(a[i] || b[i])
+//     {
+//         printf("1 ");
+//     }
+//     else{
+//         printf("0 ");
+//     }
+// }
 
 
 
