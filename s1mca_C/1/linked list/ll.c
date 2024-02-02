@@ -18,6 +18,7 @@ struct node *create(int val) // creattion of new node memory is allocated and ne
 	node->next = NULL;
 	return node;
 }
+
 void insertion()
 {
 	int a;

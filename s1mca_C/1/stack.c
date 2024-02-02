@@ -1,83 +1,57 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define max 5
 
-int s[5];
-int top =-1;
+int stack[n],top=-1;
 
-void push(int x)
+void push(int val)
 {
-    if(top==4)
+    if(top==n-1)
+    printf("overflow \n");
+    else
     {
-		printf("overflow \n");
-        
-	}
-	else{
-		top++;
-		s[top]=x;
-        
-	}
-
+        top++;
+        stack[top]=val;
+    }
 }
-
-void disp()
-{
-    if(top==-1)
-        printf("emptty stack \n");
-
-    for(int i=top;i>=0;i--)
-        printf("%d \n",s[i]);
-
-    
-
-} 
 
 void pop()
 {
-    if(top==-1)
-        printf("emptty stack \n");
 
-    else 
-	{
-        printf("%d  is poped\n",s[top]);
-		top--;
-
-	}
+if(top==-1)
+printf("stack underflow \n");
+else{
+    printf("%d is the poped element",stack[top]);
+    top--;
+}
 }
 
 
+
 void main()
-{   
-    int n,val;
-    printf("1.push\n2.display\n3.pop\n");
-    while(1)
-    {
-        printf("enteer the choice :  ");
-        scanf("%d",&n);
-        switch(n)
-        {
+{
+int n,val;
+while(1)
+{
+scanf("%d",&n);
+switch(n)
+{
+case 1 : 
+scanf("%d",&val);
+push(val);
+break;
 
-          case 1:printf("enter the number");
-          scanf("%d",&val);
-          push(val);
-          break;
+case 2 : pop();
+break;
 
-          case 2:disp();
-          break;
+case 3 : for(int i=0;i<=top;i++)
+printf("%d  ",stack[i]);
+break;
 
-          case 3:pop();
-          break;
+case 4 :
+exit(0);
+}
 
-          case 4:exit(1);
-          default:printf("enter valid number\n");
-
-
-
-        }
-
-
-    }
-
-
-
+}
 
 }
